@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>webview</title>
+	<meta name="decorator" content="default"/>
+	<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="jquery.base64.js"></script>
+	<script type="text/javascript">
+
+		function GetQueryString(name)
+		{
+			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r!=null)return  unescape(r[2]); return null;
+		}
+
+		$(function () {
+		     $.base64.utf8encode = true;
+            
+			$.ajax({
+				type : "POST",
+				url : "http://photo.yueyishujia.com/html/getHtmlInfo?id="+GetQueryString("id"),
+				cache : false,
+				contentType : false,
+				processData : false,
+				success : function(data) {
+				    
+		           
+					var codehtml=$.base64.atob(data, true);
+					$('#content').html(codehtml);
+					
+				     
+				}
+			});
+		})
+	</script>
+
+</head>
+<body>
+<div id="content">
+gggg
+</div>
+
+</body>
+</html>
