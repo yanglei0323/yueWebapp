@@ -1,10 +1,9 @@
-index.controller('fastLoginCtrl', ['$scope', '$http', '$window', '$location', '$interval',
-    function ($scope, $http, $window, $location, $interval) {
+index.controller('fastLoginCtrl', ['$scope', '$http', '$window', '$location', '$interval','$timeout',
+    function ($scope, $http, $window, $location, $interval,$timeout) {
 
     var phoneRe = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
     var codeRe = /^\d{4}$/;
     $scope.sendCodeText = '发送验证码';
-
     // 获取验证码
     $scope.getCode = function () {
         if ($scope.sending) {
@@ -14,7 +13,17 @@ index.controller('fastLoginCtrl', ['$scope', '$http', '$window', '$location', '$
             alert('手机号无效！');
             return;
         }
-    	$http.post('/user/sendlogin.json', {telnum: $scope.phone}, postCfg)
+        // 获取当前时间戳
+        var _timestamp = (new Date()).valueOf();
+        var startMd5='_timestamp='+_timestamp+'&telnum='+$scope.phone+'&key=www.yueyishujia.com';
+        var sign= md5(startMd5).toUpperCase();
+        console.log(sign);
+        var md5Data={
+            telnum: $scope.phone,
+            _timestamp:_timestamp,
+            sign:sign
+        };
+    	$http.post('/user/sign/sendlogin.json', md5Data, postCfg)
     	.then(function (resp) {
     		if (1 === resp.data.code) {
                 $scope.sending = true;

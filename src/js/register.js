@@ -44,7 +44,17 @@ index.controller('registerCtrl',
                     // $location.path('login');
     			}
     			else {
-                    $http.post('/user/sendregist.json', {telnum: $scope.phoneNum}, postCfg)
+                    // 获取当前时间戳
+                    var _timestamp = (new Date()).valueOf();
+                    var startMd5='_timestamp='+_timestamp+'&telnum='+$scope.phoneNum+'&key=www.yueyishujia.com';
+                    var sign= md5(startMd5).toUpperCase();
+                    console.log(sign);
+                    var md5Data={
+                        telnum: $scope.phoneNum,
+                        _timestamp:_timestamp,
+                        sign:sign
+                    };
+                    $http.post('/user/sendregist.json', md5Data, postCfg)
                     .then(function (resp) {
                         if (1 === resp.data.code) {
                             $scope.sending = true;

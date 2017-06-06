@@ -322,6 +322,14 @@ index.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 'balance_record.html',
 			controller: 'balanceRecordCtrl'
 		})
+		.when('/monthersDay', {
+			templateUrl: 'monthersDay.html',
+			controller: 'monthersDayCtrl'
+		})
+		.when('/monthersDay2', {
+			templateUrl: 'monthersDay2.html',
+			controller: 'monthersDay2Ctrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

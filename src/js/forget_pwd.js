@@ -40,10 +40,17 @@ index.controller('forgetPwdCtrl', ['$scope', '$interval', '$http', '$location',
             alert('手机号无效！');
             return;
         }
-		var data = {
-			telnum: $scope.phoneNum
-		};
-		$http.post(sendCodeUrl, data, postCfg)
+        // 获取当前时间戳
+        var _timestamp = (new Date()).valueOf();
+        var startMd5='_timestamp='+_timestamp+'&telnum='+$scope.phoneNum+'&key=www.yueyishujia.com';
+        var sign= md5(startMd5).toUpperCase();
+        console.log(sign);
+        var md5Data={
+            telnum: $scope.phoneNum,
+            _timestamp:_timestamp,
+            sign:sign
+        };
+		$http.post(sendCodeUrl, md5Data, postCfg)
 		.success(function (data) {
 			console.log(data);
 			if (1 === data.code) {
