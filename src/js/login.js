@@ -10,7 +10,7 @@ index.controller('loginCtrl', ['$scope', '$http', '$window', '$location', '$root
         }
         var data = {
             account: $scope.account,
-            password: $.md5($scope.password)
+            password: md5($scope.password)
         };
         var loginPromise = $http.post('/user/login.json', data, postCfg);
         loginPromise.then(function (resp) {

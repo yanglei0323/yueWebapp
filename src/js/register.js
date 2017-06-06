@@ -54,7 +54,7 @@ index.controller('registerCtrl',
                         _timestamp:_timestamp,
                         sign:sign
                     };
-                    $http.post('/user/sendregist.json', md5Data, postCfg)
+                    $http.post('/user/sign/sendregist.json', md5Data, postCfg)
                     .then(function (resp) {
                         if (1 === resp.data.code) {
                             $scope.sending = true;

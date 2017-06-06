@@ -14,17 +14,17 @@ index.controller('forgetPwdCtrl', ['$scope', '$interval', '$http', '$location',
         switch (type) {
             case 'forget_pwd':
                 $scope.title = '忘记密码';
-                sendCodeUrl = '/user/sendforget.json';
+                sendCodeUrl = '/user/sign/sendforget.json';
                 targetUrl = '/user/forget.json';
                 break;
             case 'login':
                 $scope.title = '修改登录密码';
-                sendCodeUrl = '/user/modifypasswordcode.json';
+                sendCodeUrl = '/user/sign/modifypasswordcode.json';
                 targetUrl = '/user/editpassword.json';
                 break;
             case 'pay':
                 $scope.title = '修改支付密码';
-                sendCodeUrl = '/user/modifypaypasswordcode.json';
+                sendCodeUrl = '/user/sign/modifypaypasswordcode.json';
                 targetUrl = '/user/editpaypassword.json';
                 break;
             default:
