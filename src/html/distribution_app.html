@@ -1,0 +1,92 @@
+<div class="parent-container">
+	<div id="dis-app-container">
+	    <div class="dis-title invited">目前已邀请 <span class="invited-num" ng-bind="invatationnum">300</span> 名发型师</div>
+	    <div class="dis-title bonus">累计发放奖金 <span class="invited-num" ng-bind="moneytotal">30000</span> 元</div>
+	    <!-- 活动详情按钮 -->
+	    <div class="active-btn" ng-click="toggleActive()">活动详情>></div>
+	    <div class="active-content" ng-show="activeshow">
+	    	<div class="active-main">
+	    		<div class="active-main-cont">
+	    			<img src="../../assets/images/distribution/close.png" alt="" class="close-btn" ng-click="toggleActive()">
+	    			<div class="active-title">活动详情</div>
+	    			<div class="info-title">
+	    				<img src="../../assets/images/distribution/num_1.png" alt="">
+	    				活动期限：
+	    			</div>
+	    			<p class="mtop-10 info-contont">好友接收到你的邀请并在平台产生服务订单，邀请人可领取好友每笔</p>
+	    			<p class="info-contont">订单提成的佣金，由平台承担；</p>
+	    			<div class="info-title">
+	    				<img src="../../assets/images/distribution/num_2.png" alt="">
+	    				奖励规则如下：
+	    			</div>
+	    			<p class="mtop-10 info-contont">前12个月，奖励每笔订单提成的10%；</p>
+	    			<p class="info-contont">后24个月，奖励每笔订单提成的5%；</p>
+	    			<div class="info-title">
+	    				<img src="../../assets/images/distribution/num_3.png" alt="">
+	    				获得的奖励在哪？
+	    			</div>
+	    			<p class="mtop-10 info-contont">获得的奖励直接到达我的收入，在我的收入可查看收入明细；</p>
+	    			<div class="info-title">
+	    				<img src="../../assets/images/distribution/num_4.png" alt="">
+	    				奖励有效期：
+	    			</div>
+	    			<p class="mtop-10 info-contont">奖励持续18个月，超过18个月后，将不再产生奖励；</p>
+	    		</div>
+	    	</div>
+	    </div>
+	    <!-- 下方好友列表 -->
+	    <div class="friends">
+	    	<div class="friends-content">
+	    		<div class="friends-tabs">
+	    			<span class="tabs-item tabs-item-1" ng-click="activeTab=1" ng-class="{active: activeTab == 1}">未产生的奖励好友</span>
+	    			<span class="tabs-item tabs-item-2" ng-click="activeTab=2" ng-class="{active: activeTab == 2}">已产生的奖励好友</span>
+	    		</div>
+	    		<div class="friends-div" ng-if="activeTab==1">
+					<div infinite-scroll="getDesignerList0()" infinite-scroll-disabled="loading" infinite-scroll-distance="0">
+						<div class="user-info">
+		    				<div class="user-id">1</div>
+		    				<img src="../../assets/images/distribution/store.png" alt="" class="user-avatar">
+		    				<div class="user-name">
+		    					<span>张三</span>
+		    					<span><a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3NzYwMTI5Ng==&scene=124#wechat_redirect">微信</a></span>
+		    				</div>
+		    				<span class="time">2017-8-24</span>
+		    			</div>
+					</div>
+	    		</div>
+	    		<!-- 已产生奖励列表 -->
+	    		<div class="friends-div" ng-if="activeTab==2">
+	    			<div class="user-info">
+	    				<div class="user-id"><img src="../../assets/images/distribution/first.png" alt=""></div>
+	    				<img src="../../assets/images/distribution/store.png" alt="" class="user-avatar">
+	    				<div class="user-name">
+	    					<span>张三</span>
+	    					<span>18888888888</span>
+	    				</div>
+	    				<span class="time">2017-8-24</span>
+	    			</div>
+	    			<div class="user-info">
+	    				<div class="user-id"><img src="../../assets/images/distribution/second.png" alt=""></div>
+	    				<img src="../../assets/images/distribution/store.png" alt="" class="user-avatar">
+	    				<div class="user-name">
+	    					<span>张三</span>
+	    					<span>18888888888</span>
+	    				</div>
+	    				<span class="time">2017-8-24</span>
+	    			</div>
+	    			<div class="user-info">
+	    				<div class="user-id"><img src="../../assets/images/distribution/third.png" alt=""></div>
+	    				<img src="../../assets/images/distribution/store.png" alt="" class="user-avatar">
+	    				<div class="user-name">
+	    					<span>张三</span>
+	    					<span>18888888888</span>
+	    				</div>
+	    				<span class="time">2017-8-24</span>
+	    			</div>
+
+	    		</div>
+	    	</div>
+	    	<img src="../../assets/images/distribution/btn.png" alt="" class="share-btn">
+	    </div>
+	</div>
+</div>

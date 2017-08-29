@@ -330,6 +330,22 @@ index.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 'monthersDay2.html',
 			controller: 'monthersDay2Ctrl'
 		})
+		.when('/distribution_app/:designerid', {
+			templateUrl: 'distribution_app.html',
+			controller: 'disappCtrl'
+		})
+		.when('/distribution_h5/:designerid', {
+			templateUrl: 'distribution_h5.html',
+			controller: 'dish5Ctrl'
+		})
+		.when('/agreementinfo', {
+			templateUrl: 'agreementinfo.html',
+			controller: 'agreementinfoCtrl'
+		})
+		.when('/register_h5', {
+			templateUrl: 'register_h5.html',
+			controller: 'registerh5Ctrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
@@ -379,12 +395,12 @@ index.config(['$routeProvider', function ($routeProvider) {
 		});
 	}
 	
-	if (navigator.geolocation) {
-    	navigator.geolocation.getCurrentPosition(showPosition);
-    }
-    else {
-    	alert('当前浏览器不支持navigator.geolacation');
-    }
+	// if (navigator.geolocation) {
+ //    	navigator.geolocation.getCurrentPosition(showPosition);
+ //    }
+ //    else {
+ //    	alert('当前浏览器不支持navigator.geolacation');
+ //    }
 })();
 
 function showPosition(position) {

@@ -1,0 +1,69 @@
+<div class="parent-container">
+	<div id="dis-h5-container">
+		<!-- 设计师头像 -->
+		<div class="designer-avatar">
+			<img src="../../assets/images/distribution/store.png" alt="">
+		</div>
+		<!-- 设计师姓名 -->
+		<div class="designer-name">Edwin</div>
+		<!-- 表单 -->
+		<div class="group-cont group-cont-1">
+			<span>
+				<img src="../../assets/images/distribution/tel.png" alt="手机号" class="phone-icon">
+				<input type="text" placeholder="请输入手机号" class="input-text" name="phone-num" maxlength="11" ng-model="phone">
+			</span>
+		</div>
+		<div class="group-cont group-cont-2">
+			<span>
+				<img src="../../assets/images/distribution/pwd.png" alt="验证码" class="code-icon">
+				<input type="text" placeholder="请输验证码" class="input-text" ng-model="code" maxlength="4">
+				<span ng-class="{'get-code-btn':true,'unuseful':sending}" ng-click="getCode()" ng-bind="sendCodeText"></span>
+			</span>
+		</div>
+		<div class="agreement-contant">
+			<span ng-click="checkAgfunc()" class="checkbox-cont"><span ng-if="checkAg">√</span></span>
+			<span ng-click="goAgreementInfo()">注册即同意《悦艺术家造型师合作协议》</span>
+		</div>
+	    <div id="confirm-login-btn" class="btn-common" ng-click="confirmLogin()">
+	        注册，并去完善个人信息
+	    </div>
+	    <!-- 下方card -->
+		<div class="card-container">
+			<div class="card-item border-bottom-cd">
+				<img src="../../assets/images/distribution/logo.png" alt="">
+				<span class="card-title">
+					<p>关于悦艺术家平台</p>
+					<p class="font-size-25">ABOUT ARTISAN HOUSE</p>
+				</span>
+			</div>
+			<div class="card-item card-second">
+				<img src="../../assets/images/distribution/store.png" alt="">
+				<span class="card-title">
+					<p>明星门店体验中心</p>
+					<p class="font-size-25">EXPERIENCE CENTER</p>
+				</span>
+			</div>
+		</div>
+		<!-- qrcode -->
+		<div class="qrcode">
+			<div class="qrcode-contant">
+				<img src="../../assets/images/distribution/logo.jpg" alt="">
+				<span class="qrcode-info">
+					<p>即刻关注悦艺术家公众号</p>
+					<p>发现更多行业资讯</p>
+				</span>
+				<div class="qr-btn" ng-click="showQrImg()">
+					关注
+				</div>
+			</div>
+		</div>
+		<div class="qrcode-img" ng-if="showQrcode">
+			<div class="qrcode-img-content">
+				<div class="qr-relative">
+					<img src="../../assets/images/distribution/qrcode.png" alt="二维码">
+					<img src="../../assets/images/distribution/close.png" alt="close" class="close-img" ng-click="showQrImg()">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

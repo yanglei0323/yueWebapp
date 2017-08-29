@@ -65,6 +65,7 @@ index.controller('appointConfirmCtrl',
 			time: $rootScope.timeIndex,
 			serviceid: serviceItems
 		};
+		// console.log(data);
 		var odertm=$('.getodtime').text();
 		if(odertm=== ''){
 			$scope.boxtextshow=!$scope.boxtextshow;
@@ -72,6 +73,7 @@ index.controller('appointConfirmCtrl',
 		}
 		$http.post('/v2/designer/reserve.json', data, postCfg)
 		.success(function (data) {
+			// console.log(data);
 			if (-1 === data.code) {
 				$location.path('login');
 			}
