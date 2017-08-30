@@ -342,7 +342,7 @@ index.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 'agreementinfo.html',
 			controller: 'agreementinfoCtrl'
 		})
-		.when('/register_h5', {
+		.when('/register_h5/:designerid', {
 			templateUrl: 'register_h5.html',
 			controller: 'registerh5Ctrl'
 		})

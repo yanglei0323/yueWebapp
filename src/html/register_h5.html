@@ -6,77 +6,77 @@
         <div class="nav-item margin-top-10">
             <div class="left-content">
                 <span class="item-name">姓名<span class="Identification">&nbsp;*</span></span>
-                <span class="bz-message"><input type="text" placeholder="填写您的真实姓名" ng-model="name"></span>
+                <span class="bz-message"><input type="text" placeholder="填写您的真实姓名" ng-model="name" maxlength="8"></span>
             </div>
         </div>
         <div class="nav-item">
             <div class="left-content">
                 <span class="item-name">艺名<span class="Identification">&nbsp;*</span></span>
-                <span class="bz-message"><input type="text" placeholder="" ng-model="stagename"></span>
+                <span class="bz-message"><input type="text" placeholder="" ng-model="stagename" maxlength="8"></span>
             </div>
         </div>
         <div class="nav-item">
             <div class="left-content">
                 <span class="item-name">手机号<span class="Identification">&nbsp;*</span></span>
-                <span class="bz-message"><input type="text" placeholder="" ng-model="telephone"></span>
+                <span class="bz-message"><input type="text" placeholder="" ng-model="telephone" maxlength="11"></span>
             </div>
         </div>
         <div class="nav-item">
             <div class="left-content">
                 <span class="item-name">性别<span class="Identification">&nbsp;*</span></span>
                 <span class="bz-message">
-                    <img src="../../assets/images/distribution/select.png" alt="未选中" ng-if="sex == '女'" ng-click="select(1)">
-                    <img src="../../assets/images/distribution/selected.png" alt="选中" ng-if="sex == '男'">
-                    <span class="sexflag" ng-click="select(1)">男</span>
-                    <img src="../../assets/images/distribution/select.png" alt="未选中" ng-if="sex == '男'" ng-click="select(0)" class="m-left-110">
-                    <img src="../../assets/images/distribution/selected.png" alt="选中" ng-if="sex == '女'" class="m-left-110">
-                    <span class="sexflag" ng-click="select(0)">女</span>
+                    <img src="../../assets/images/distribution/select.png" alt="未选中" ng-if="sex == 1" ng-click="select(0)">
+                    <img src="../../assets/images/distribution/selected.png" alt="选中" ng-if="sex == 0">
+                    <span class="sexflag" ng-click="select(0)">男</span>
+                    <img src="../../assets/images/distribution/select.png" alt="未选中" ng-if="sex == 0" ng-click="select(1)" class="m-left-110">
+                    <img src="../../assets/images/distribution/selected.png" alt="选中" ng-if="sex == 1" class="m-left-110">
+                    <span class="sexflag" ng-click="select(1)">女</span>
                 </span>
             </div>
         </div>
         <div class="nav-item">
             <div class="left-content">
                 <span class="item-name">年龄<span class="Identification">&nbsp;*</span></span>
-                <span class="bz-message"><input type="text" placeholder="请直接填写数字" ng-model="age"><span class="sexflag">岁</span></span>
+                <span class="bz-message"><input type="text" placeholder="请直接填写数字" ng-model="age" maxlength="3"><span class="sexflag">岁</span></span>
             </div>
         </div>
         <div class="nav-item">
             <div class="left-content">
                 <span class="item-name">籍贯<span class="Identification">&nbsp;*</span></span>
-                <span class="bz-message"><input type="text" placeholder="请输入您所在地的城市名称" ng-model="birthplace"></span>
+                <span class="bz-message"><input type="text" placeholder="请输入您所在地的城市名称" ng-model="birthplace" maxlength="10"></span>
             </div>
         </div>
         <div class="profession">
             <span class="item-name">选择您的职业<span class="Identification">&nbsp;*</span></span>
             <div class="profession-item">
-                <img src="../../assets/images/distribution/select.png" alt="未选中" ng-if="professionflag != '发型师'" ng-click="selectprofession(1)">
-                <img src="../../assets/images/distribution/selected.png" alt="选中" ng-if="professionflag == '发型师'">
-                <span ng-click="selectprofession(1)" ng-class="{select : professionflag == '发型师'}">发型师</span>
+                <img src="../../assets/images/distribution/select.png" alt="未选中" ng-if="professionflag != 1" ng-click="selectprofession(1)">
+                <img src="../../assets/images/distribution/selected.png" alt="选中" ng-if="professionflag == 1">
+                <span ng-click="selectprofession(1)" ng-class="{select : professionflag == 1}">发型师</span>
                 <!-- 美妆师 -->
-                <img src="../../assets/images/distribution/select.png" alt="未选中" ng-if="professionflag != '美妆师'" ng-click="selectprofession(2)">
-                <img src="../../assets/images/distribution/selected.png" alt="选中" ng-if="professionflag == '美妆师'">
-                <span ng-click="selectprofession(2)" ng-class="{select : professionflag == '美妆师'}">美妆师</span>
+                <img src="../../assets/images/distribution/select.png" alt="未选中" ng-if="professionflag != 2" ng-click="selectprofession(2)">
+                <img src="../../assets/images/distribution/selected.png" alt="选中" ng-if="professionflag == 2">
+                <span ng-click="selectprofession(2)" ng-class="{select : professionflag == 2}">美妆师</span>
                 <!-- 美甲师 -->
-                <img src="../../assets/images/distribution/select.png" alt="未选中" ng-if="professionflag != '美甲师'" ng-click="selectprofession(3)">
-                <img src="../../assets/images/distribution/selected.png" alt="选中" ng-if="professionflag == '美甲师'">
-                <span ng-click="selectprofession(3)" ng-class="{select : professionflag == '美甲师'}">美甲师</span>
+                <img src="../../assets/images/distribution/select.png" alt="未选中" ng-if="professionflag != 3" ng-click="selectprofession(3)">
+                <img src="../../assets/images/distribution/selected.png" alt="选中" ng-if="professionflag == 3">
+                <span ng-click="selectprofession(3)" ng-class="{select : professionflag == 3}">美甲师</span>
                 <!-- 美搭师 -->
-                <img src="../../assets/images/distribution/select.png" alt="未选中" ng-if="professionflag != '美搭师'" ng-click="selectprofession(4)">
-                <img src="../../assets/images/distribution/selected.png" alt="选中" ng-if="professionflag == '美搭师'">
-                <span ng-click="selectprofession(4)" ng-class="{select : professionflag == '美搭师'}">美搭师</span>
+                <img src="../../assets/images/distribution/select.png" alt="未选中" ng-if="professionflag != 4" ng-click="selectprofession(4)">
+                <img src="../../assets/images/distribution/selected.png" alt="选中" ng-if="professionflag == 4">
+                <span ng-click="selectprofession(4)" ng-class="{select : professionflag == 4}">美搭师</span>
                 <span></span>
             </div>
         </div>
         <div class="nav-item">
             <div class="left-content">
                 <span class="item-name">从业时间<span class="Identification">&nbsp;*</span></span>
-                <span class="bz-message"><input type="text" placeholder="请直接填写数字" ng-model="employmenttime"><span class="sexflag">年</span></span>
+                <span class="bz-message"><input type="text" placeholder="请直接填写数字" ng-model="employmenttime" maxlength="5"><span class="sexflag">年</span></span>
             </div>
         </div>
         <div class="nav-item">
             <div class="left-content">
                 <span class="item-name">剪发价格<span class="Identification">&nbsp;*</span></span>
-                <span class="bz-message"><input type="text" placeholder="请直接填写数字" ng-model="cutprice"><span class="sexflag">元</span></span>
+                <span class="bz-message"><input type="text" placeholder="请直接填写数字" ng-model="cutprice" maxlength="6"><span class="sexflag">元</span></span>
             </div>
         </div>
         <div class="info-item margin-top-10">
@@ -103,32 +103,52 @@
             <span class="item-name">参加品牌发布</span>
             <textarea class="item-area" placeholder="可填写多个，以逗号间隔（例：LV，CHANEL）" ng-model="brand"></textarea>
         </div>
+        <div class="info-item">
+            <span class="item-name">个人设计心得和生活理念</span>
+            <textarea class="item-area" placeholder="个人设计特长、性格爱好" ng-model="designexp"></textarea>
+        </div>
+        <div class="info-item">
+            <span class="item-name">15个字以内座右铭<span class="Identification">&nbsp;*</span></span>
+            <textarea class="item-area" placeholder="座右铭会在APP个人主页展示" ng-model="simpleinfo"></textarea>
+        </div>
         <div class="img-item margin-top-10">
             <span class="item-name">生活照<span class="Identification">&nbsp;*&nbsp;</span><span class="placholder-text">可上传3张</span></span>
             <span class="update-img update-img-life">
                 <!-- <img ng-src="{{item}}" alt="" ng-repeat="item in lifeList track by $index"> -->
-                <img src="../../assets/images/distribution/upload.png" alt="" ng-click="addLifePhoto()" ng-if="lifemediaid.length <= 2">
+                <span class="upimg-span showlifebtn">
+                    <img src="../../assets/images/distribution/upload.png" alt="">
+                    <input type="file" id="lifeImg"  accept="image/*" />
+                </span>
             </span>
         </div>
         <div class="img-item margin-top-10">
             <span class="item-name">工作照<span class="Identification">&nbsp;*&nbsp;</span><span class="placholder-text">可上传3张</span></span>
             <span class="update-img update-img-work">
                 <!-- <img ng-src="{{item}}" alt="" ng-repeat="item in workList track by $index"> -->
-                <img src="../../assets/images/distribution/upload.png" alt="" ng-click="addWorkPhoto()" ng-if="workmediaid.length <= 2">
+                <span class="upimg-span showworkbtn">
+                    <img src="../../assets/images/distribution/upload.png" alt="">
+                    <input type="file" id="workImg"  accept="image/*" />
+                </span>
             </span>
         </div>
         <div class="img-item margin-top-10">
             <span class="item-name">艺术照<span class="Identification">&nbsp;*&nbsp;</span><span class="placholder-text">可上传3张</span></span>
             <span class="update-img update-img-art">
                 <!-- <img ng-src="{{item}}" alt="" ng-repeat="item in artList track by $index"> -->
-                <img src="../../assets/images/distribution/upload.png" alt="" ng-click="addArtPhoto()" ng-if="artmediaid.length <= 2">
+                <span class="upimg-span showartbtn">
+                    <img src="../../assets/images/distribution/upload.png" alt="">
+                    <input type="file" id="artImg"  accept="image/*" />
+                </span>
             </span>
         </div>
         <div class="img-item margin-top-10">
             <span class="item-name">作品照<span class="Identification">&nbsp;*&nbsp;</span><span class="placholder-text">可上传3张</span></span>
             <span class="update-img update-img-goods">
                 <!-- <img ng-src="{{item}}" alt="" ng-repeat="item in goodsList track by $index"> -->
-                <img src="../../assets/images/distribution/upload.png" alt="" ng-click="addGoodsPhoto()" ng-if="goodsmediaid.length <= 2">
+                <span class="upimg-span showgoodsbtn">
+                    <img src="../../assets/images/distribution/upload.png" alt="">
+                    <input type="file" id="goodsImg"  accept="image/*" />
+                </span>
             </span>
         </div>
         <div class="memo-item margin-top-10">
@@ -138,7 +158,7 @@
         <div class="memo-text">
             <span>注：提交后不可修改</span>
         </div>
-        <div class="save-btn" ng-click="toPayTailor()">
+        <div class="save-btn" ng-click="toRegister()">
             <span>提交</span>
         </div>
     </div>
