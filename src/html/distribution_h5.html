@@ -2,10 +2,10 @@
 	<div id="dis-h5-container">
 		<!-- 设计师头像 -->
 		<div class="designer-avatar">
-			<img src="../../assets/images/distribution/store.png" alt="">
+			<img ng-src="{{designerinfo.avatar}}" alt="">
 		</div>
 		<!-- 设计师姓名 -->
-		<div class="designer-name">Edwin</div>
+		<div class="designer-name" ng-bind="designerinfo.name">Edwin</div>
 		<!-- 表单 -->
 		<div class="group-cont group-cont-1">
 			<span>
@@ -17,7 +17,7 @@
 			<span>
 				<img src="../../assets/images/distribution/pwd.png" alt="验证码" class="code-icon">
 				<input type="text" placeholder="请输验证码" class="input-text" ng-model="code" maxlength="4">
-				<span ng-class="{'get-code-btn':true,'unuseful':sending}" ng-click="getCode()" ng-bind="sendCodeText"></span>
+				<span ng-class="{'get-code-btn':true,'unuseful':sending}" ng-click="getCode()" ng-bind="sendCodeText" style="position: absolute;right: 0.266667rem;top: 0;"></span>
 			</span>
 		</div>
 		<div class="agreement-contant">

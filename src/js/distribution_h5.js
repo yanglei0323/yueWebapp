@@ -1,8 +1,20 @@
 index.controller('dish5Ctrl',
 	['$scope', '$http', '$window', '$rootScope', '$location','$interval','$routeParams', function ($scope, $http, $window, $rootScope, $location,$interval,$routeParams) {
-	
+
     $scope.showQrcode = false;
     var designerid=$routeParams.designerid;
+    // 获取发型师详情
+    $http.post('/designer/invitation/getinfo.json', {'designerid': designerid}, postCfg)
+    .then(function (resp) {
+        console.log(resp);
+        if (1 === resp.data.code) {
+            resp.data.data.designer.avatar = picBasePath + resp.data.data.designer.avatar;
+            $scope.designerinfo = resp.data.data.designer;
+        }
+    }, function (resp) {
+        // alert('数据请求失败，请稍后再试！');
+    });
+
 	var phoneRe = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
     var codeRe = /^\d{4}$/;
     $scope.sendCodeText = '获取验证码';
@@ -30,8 +42,9 @@ index.controller('dish5Ctrl',
             _timestamp:_timestamp,
             sign:sign
         };
-    	$http.post('/designer/sign/register/sendcode.json ', md5Data, postCfg)
+    	$http.post('/designer/sign/register/sendcode.json', md5Data, postCfg)
     	.then(function (resp) {
+            // console.log(resp);
     		if (1 === resp.data.code) {
                 $scope.sending = true;
                 var leftTime = 60;
@@ -45,7 +58,9 @@ index.controller('dish5Ctrl',
                         $interval.cancel(timer);
                     }
                 }, 1000);
-    		}
+    		}else{
+                alert(resp.data.reason);
+            }
     	}, function (resp) {
     		console.log(resp);
     	});
@@ -67,7 +82,10 @@ index.controller('dish5Ctrl',
     	.then(function (resp) {
     		console.log(resp);
             if (1 === resp.data.code) {
-                
+                var user = resp.data.data;
+                sessionStorage.setItem('user', JSON.stringify(user));
+                // $location.path('register_h5').search({'designerid': designerid});
+                window.location.href = 'index.html#/register_h5/'+designerid;
             }
             else if (0 === resp.data.code) {
                 alert(resp.data.reason);

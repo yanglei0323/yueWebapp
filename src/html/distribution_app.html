@@ -41,52 +41,36 @@
 	    			<span class="tabs-item tabs-item-1" ng-click="activeTab=1" ng-class="{active: activeTab == 1}">未产生的奖励好友</span>
 	    			<span class="tabs-item tabs-item-2" ng-click="activeTab=2" ng-class="{active: activeTab == 2}">已产生的奖励好友</span>
 	    		</div>
+	    		<!-- 未产生奖励 -->
 	    		<div class="friends-div" ng-if="activeTab==1">
-					<div infinite-scroll="getDesignerList0()" infinite-scroll-disabled="loading" infinite-scroll-distance="0">
-						<div class="user-info">
-		    				<div class="user-id">1</div>
-		    				<img src="../../assets/images/distribution/store.png" alt="" class="user-avatar">
-		    				<div class="user-name">
-		    					<span>张三</span>
-		    					<span><a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3NzYwMTI5Ng==&scene=124#wechat_redirect">微信</a></span>
-		    				</div>
-		    				<span class="time">2017-8-24</span>
-		    			</div>
-					</div>
+					<div class="user-info" ng-repeat="item in invitationlist0">
+	    				<div class="user-id" ng-bind="item.serialnum"></div>
+	    				<img ng-src="{{item.invitationdesigner.avatar}}" alt="" class="user-avatar">
+	    				<div class="user-name">
+	    					<span ng-bind="item.invitationdesigner.name"></span>
+	    					<span ng-bind="item.invitationdesigner.telephone"></span>
+	    				</div>
+	    				<span class="time" ng-bind="item.date"></span>
+	    			</div>
 	    		</div>
 	    		<!-- 已产生奖励列表 -->
 	    		<div class="friends-div" ng-if="activeTab==2">
-	    			<div class="user-info">
-	    				<div class="user-id"><img src="../../assets/images/distribution/first.png" alt=""></div>
-	    				<img src="../../assets/images/distribution/store.png" alt="" class="user-avatar">
+	    			<div class="user-info" ng-repeat="item in invitationlist1">
+	    				<div class="user-id" ng-bind="item.serialnum" ng-if="item.serialnum >= 4"></div>
+	    				<div class="user-id" ng-if="item.serialnum == 1"><img src="../../assets/images/distribution/first.png" alt=""></div>
+	    				<div class="user-id" ng-if="item.serialnum == 2"><img src="../../assets/images/distribution/second.png" alt=""></div>
+	    				<div class="user-id" ng-if="item.serialnum == 3"><img src="../../assets/images/distribution/third.png" alt=""></div>
+	    				<img ng-src="{{item.invitationdesigner.avatar}}" alt="" class="user-avatar">
 	    				<div class="user-name">
-	    					<span>张三</span>
-	    					<span>18888888888</span>
+	    					<span ng-bind="item.invitationdesigner.name"></span>
+	    					<span ng-bind="item.invitationdesigner.telephone"></span>
 	    				</div>
-	    				<span class="time">2017-8-24</span>
-	    			</div>
-	    			<div class="user-info">
-	    				<div class="user-id"><img src="../../assets/images/distribution/second.png" alt=""></div>
-	    				<img src="../../assets/images/distribution/store.png" alt="" class="user-avatar">
-	    				<div class="user-name">
-	    					<span>张三</span>
-	    					<span>18888888888</span>
-	    				</div>
-	    				<span class="time">2017-8-24</span>
-	    			</div>
-	    			<div class="user-info">
-	    				<div class="user-id"><img src="../../assets/images/distribution/third.png" alt=""></div>
-	    				<img src="../../assets/images/distribution/store.png" alt="" class="user-avatar">
-	    				<div class="user-name">
-	    					<span>张三</span>
-	    					<span>18888888888</span>
-	    				</div>
-	    				<span class="time">2017-8-24</span>
+	    				<span class="time" ng-bind="item.date"></span>
 	    			</div>
 
 	    		</div>
 	    	</div>
-	    	<img src="../../assets/images/distribution/btn.png" alt="" class="share-btn">
+	    	<img src="../../assets/images/distribution/btn.png" alt="" class="share-btn" ng-click="sharePage()">
 	    </div>
 	</div>
 </div>

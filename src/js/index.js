@@ -346,6 +346,14 @@ index.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 'register_h5.html',
 			controller: 'registerh5Ctrl'
 		})
+		.when('/register_suc', {
+			templateUrl: 'register_suc.html',
+			controller: 'registersucCtrl'
+		})
+		.when('/wechatcall/:designerid', {
+			templateUrl: 'wechatcall.html',
+			controller: 'wechatcallCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
