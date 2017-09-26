@@ -16,7 +16,7 @@
 		<div class="group-cont group-cont-2">
 			<span>
 				<img src="../../assets/images/distribution/pwd.png" alt="验证码" class="code-icon">
-				<input type="text" placeholder="请输验证码" class="input-text" ng-model="code" maxlength="4">
+				<input type="text" placeholder="请输入验证码" class="input-text" ng-model="code" maxlength="4">
 				<span ng-class="{'get-code-btn':true,'unuseful':sending}" ng-click="getCode()" ng-bind="sendCodeText" style="position: absolute;right: 0.266667rem;top: 0;"></span>
 			</span>
 		</div>
@@ -36,7 +36,7 @@
 					<p class="font-size-25">ABOUT ARTISAN HOUSE</p>
 				</span>
 			</div>
-			<div class="card-item card-second">
+			<div class="card-item card-second" ng-click="goStore()">
 				<img src="../../assets/images/distribution/store.png" alt="">
 				<span class="card-title">
 					<p>明星门店体验中心</p>

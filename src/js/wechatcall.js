@@ -4,7 +4,7 @@ index.controller('wechatcallCtrl',
     // 获取发型师详情
     $http.post('/user/invitation/sendtofriend.json', {'userid': designerid}, postCfg)
     .then(function (resp) {
-        // console.log(resp);
+        console.log(resp);
         if (1 === resp.data.code) {
             resp.data.data.user.imgurl = picBasePath + resp.data.data.user.imgurl;
             resp.data.data.user.vip.servicediscount = parseInt(resp.data.data.user.vip.servicediscount)*10;

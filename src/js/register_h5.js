@@ -1,6 +1,7 @@
 index.controller('registerh5Ctrl',
 	['$scope', '$http', '$window', '$rootScope', '$location','$interval','$routeParams', function ($scope, $http, $window, $rootScope, $location,$interval,$routeParams) {
 	$scope.saveloading = false;
+    $scope.btntext = '提交';
     var designerid=$routeParams.designerid;
     $scope.sex=0;//1代表性别男，0代表女
     $scope.select = function(index){
@@ -223,7 +224,13 @@ index.controller('registerh5Ctrl',
     $scope.cutprice = '';
     $scope.simpleinfo = '';
     // 点击注册按钮
+    var phoneRe = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
     $scope.toRegister = function (){
+
+        if (!phoneRe.test($scope.telephone)) {//验证手机号
+            alert('手机号无效！');
+            return false;
+        }
         if($scope.name === ''|| $scope.telephone===''|| $scope.stagename===''|| $scope.age===''|| $scope.birthplace===''|| $scope.employmenttime===''|| $scope.cutprice===''|| $scope.simpleinfo===''|| $scope.lifemediaid.length === 0|| $scope.workmediaid.length === 0|| $scope.artmediaid.length === 0|| $scope.goodsmediaid.length === 0){
             alert('有信息尚未填写，请完善后再提交');
             return false;
@@ -232,6 +239,7 @@ index.controller('registerh5Ctrl',
             return false;
         }
         $scope.saveloading = true;
+        $scope.btntext = '上传中...';
         var job=[];
         job.push($scope.professionflag);
         var data={
@@ -263,6 +271,7 @@ index.controller('registerh5Ctrl',
         .then(function (resp) {
             console.log(resp);
             $scope.saveloading = false;
+            $scope.btntext = '提交';
             if (1 === resp.data.code) {
                 
                 $location.path('register_suc');
@@ -271,6 +280,7 @@ index.controller('registerh5Ctrl',
             }
         }, function (resp) {
             $scope.saveloading = false;
+            $scope.btntext = '提交';
             alert('网络请求错误，请稍后重试！');
         });
     };

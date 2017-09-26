@@ -15,7 +15,7 @@ index.controller('dish5Ctrl',
         // alert('数据请求失败，请稍后再试！');
     });
 
-	var phoneRe = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+	var phoneRe = /^(13[0-9]|14[5|7|9]|15[0|1|2|3|5|6|7|8|9]|17[3|5|6|7|8]|18[0-9])\d{8}$/;
     var codeRe = /^\d{4}$/;
     $scope.sendCodeText = '获取验证码';
     if($rootScope.agree){
@@ -76,7 +76,8 @@ index.controller('dish5Ctrl',
         }
     	var data = {
     		telnum: $scope.phone,
-    		check: $scope.code
+    		check: $scope.code,
+            designerid:designerid
     	};
     	$http.post('/designer/register/codeverify.json', data, postCfg)
     	.then(function (resp) {
@@ -103,6 +104,9 @@ index.controller('dish5Ctrl',
     };
     $scope.goAgreementInfo = function(){
         $location.path('agreementinfo');
+    };
+    $scope.goStore = function (){
+        $location.path('store');
     };
     function checkParams() {
         if (!phoneRe.test($scope.phone)) {
