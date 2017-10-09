@@ -7,7 +7,7 @@ index.controller('wechatcallCtrl',
         console.log(resp);
         if (1 === resp.data.code) {
             resp.data.data.user.imgurl = picBasePath + resp.data.data.user.imgurl;
-            resp.data.data.user.vip.servicediscount = parseInt(resp.data.data.user.vip.servicediscount)*10;
+            $scope.discount = resp.data.data.discount;
             $scope.designerinfo = resp.data.data.user;
         }
     }, function (resp) {

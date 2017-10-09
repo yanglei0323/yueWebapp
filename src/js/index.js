@@ -354,6 +354,10 @@ index.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 'wechatcall.html',
 			controller: 'wechatcallCtrl'
 		})
+		.when('/rules', {
+			templateUrl: 'rules.html',
+			controller: 'rulesCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
@@ -418,6 +422,7 @@ index.config(['$routeProvider', function ($routeProvider) {
  //    else {
  //    	alert('当前浏览器不支持navigator.geolacation');
  //    }
+    
 })();
 
 function showPosition(position) {
