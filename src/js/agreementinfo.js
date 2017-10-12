@@ -3,10 +3,10 @@ index.controller('agreementinfoCtrl',
 	
     $scope.confirm =function(index){
         if(index == 1){
-            $rootScope.agree=false;
+            $rootScope.agree=1;
             $window.history.back();
         }else if(index == 2){
-            $rootScope.agree=true;
+            $rootScope.agree=2;
             $window.history.back();
         }
     };

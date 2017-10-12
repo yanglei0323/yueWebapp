@@ -18,10 +18,12 @@ index.controller('dish5Ctrl',
 	var phoneRe = /^(13[0-9]|14[5|7|9]|15[0|1|2|3|5|6|7|8|9]|17[3|5|6|7|8]|18[0-9])\d{8}$/;
     var codeRe = /^\d{4}$/;
     $scope.sendCodeText = '获取验证码';
-    if($rootScope.agree){
+    if($rootScope.agree == 2){
         $scope.checkAg = true;
-    }else{
+    }else if($rootScope.agree == 1){
         $scope.checkAg = false;
+    }else{
+        $scope.checkAg = true;
     }
     // 获取验证码
     $scope.getCode = function () {
