@@ -77,7 +77,7 @@ index.controller('disappCtrl',
 						$scope.invitationlist1.push(designerinvitationlist1[i]);
 						$scope.serialnum1++;
 					}
-					console.log($scope.invitationlist1);
+					// console.log($scope.invitationlist1);
 	            	page1++;
 	            	getDesignerList1();
 				}
